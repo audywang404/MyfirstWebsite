@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>导航网站</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            width: 100%;
+        }
+        
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            flex-grow: 1;
+            width: 100%;
+        }
+        
+        .search-box {
+            margin-bottom: 20px;
+        }
+        
+        .search-box input {
+            padding: 10px;
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        
+        .search-box button {
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .links {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .links a {
+            margin: 10px 0;
+            padding: 10px 20px;
+            background-color: #333;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            width: 200px;
+            text-align: center;
+        }
+        
+        .links a:hover {
+            background-color: #555;
+        }
+        
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>我的导航网站</h1>
+    </header>
+    <main>
+        <div class="search-box">
+            <input type="text" id="search-input" placeholder="输入搜索内容...">
+            <button id="search-button">搜索</button>
+        </div>
+        <div class="links">
+            <a href="https://www.baidu.com" target="_blank">百度</a>
+            <a href="https://www.google.com" target="_blank">Google</a>
+            <a href="https://www.github.com" target="_blank">GitHub</a>
+            <a href="https://www.zhihu.com" target="_blank">知乎</a>
+            <a href="https://www.bilibili.com" target="_blank">哔哩哔哩</a>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2023 我的导航网站</p>
+    </footer>
+    <script src="scripts.js"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchButton = document.getElementById('search-button');
+            const searchInput = document.getElementById('search-input');
+        
+            searchButton.addEventListener('click', function() {
+                const query = searchInput.value.trim();
+                if (query) {
+                    window.open(`https://www.baidu.com/s?wd=${encodeURIComponent(query)}`, '_blank');
+                }
+            });
+        
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    const query = searchInput.value.trim();
+                    if (query) {
+                        window.open(`https://www.baidu.com/s?wd=${encodeURIComponent(query)}`, '_blank');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
